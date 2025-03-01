@@ -22,3 +22,39 @@ model Produto {
 
   @@map("produto")
 }
+
+model Categoria {
+  id     Int    @id @default(autoincrement())
+  nome   String @unique
+  status String
+
+  @@map("tb_categoria")
+}
+
+model Cliente {
+  id Int @id @default(autoincrement())
+
+  nome     String
+  telefone String
+  email    String @unique
+  senha    String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tb_cliente")
+}
+
+model Funcionario {
+  id Int @id @default(autoincrement())
+
+  nome     String
+  telefone String
+  email    String @unique
+  senha    String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tb_funcionario")
+}
