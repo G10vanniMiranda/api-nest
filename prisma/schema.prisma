@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -24,9 +24,13 @@ model Produto {
 }
 
 model Categoria {
-  id     Int    @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
   nome   String @unique
   status String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("tb_categoria")
 }
