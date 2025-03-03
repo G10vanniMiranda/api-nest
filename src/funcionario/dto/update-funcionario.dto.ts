@@ -1,5 +1,4 @@
+import { PartialType } from '@nestjs/mapped-types';
 import { CreateFuncionarioDto } from './create-funcionario.dto';
 
-export interface UpdateFuncionarioDto extends Partial<CreateFuncionarioDto> {
-    id: number
-}
+export class UpdateFuncionarioDto extends PartialType(CreateFuncionarioDto) { }
